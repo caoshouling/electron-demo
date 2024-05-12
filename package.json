@@ -1,0 +1,49 @@
+{
+  "name": "electron-demo",
+  "version": "1.0.0",
+  "description": "electron-demo",
+  "productName": "electron测试",
+  "author": "caoshouling <1046757614@qq.com>",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch main.js --exec npm run start",
+    "start": "electron .",
+    "package": "electron-packager . electron-demo --platform=win32 --arch=x64 --out ./dist --app-version 1.0.0 --overwrite --icon=images/icon256.ico",
+    "build": "electron-builder --win --x64"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.3",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2",
+    "nodemon": "^3.1.0"
+  },
+  "build": {
+    "productName": "electron build打包",
+    "appId": "electron.demo.app",
+    "copyright": "caoshouling",
+    "directories": {
+      "output": "./dist"
+    },
+    "win": {
+      "icon": "images/icon256.ico",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "简写名称",
+      "installerIcon": "images/icon256.ico",
+      "uninstallerIcon": "images/uninstall256.ico",
+      "installerHeaderIcon": "images/icon256.ico"
+    }
+  }
+}
